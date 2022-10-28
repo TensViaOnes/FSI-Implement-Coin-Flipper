@@ -1,27 +1,66 @@
-// TODO: Declare any global variables we need
 
+      
+      
+// TODO: Declare any global variables we need
+let headsFlipTally = 0
+let headsPercentage = '0%'
+let tailsFlipTally = 0
+let tailsPercentage = '0%'
+let totalFlips = 0
 
 document.addEventListener('DOMContentLoaded', function () {
-    // This is just a sanity check to make sure your JavaScript script is getting loaded
-    // You can remove it once you see it in your browser console in the developer tools
-    console.log('Hi')
+ /*this is added to ensure that HTML and scripts that make up the page have loaded, 
+    but not necessarily the images or CSS */
 
-    // TODO: Add event listener and handler for flip and clear buttons
+   document.querySelector('#flip').addEventListener('click', function() {
+       if (Math.random() > .5) {
+            //this (>.5) means that we have flipped heads. MB intetprets this as being since a coin flip only has 2 possibilities. 
+           headsFlipTally++
+           totalFlips++
+           headsPercentage = Math.round(headsFlipTally/totalFlips * 100)
+           tailsPercentage  = Math.round(tailsFlipTally/totalFlips * 100)
+           document.querySelector('#penny-image').src = 'assets/images/penny-heads.jpg'
+           document.querySelector('#message').innerHTML = "!You've Flipped heads!"
+           document.querySelector('#heads').innerHTML = headsFlipTally
+           document.querySelector('#heads-percent').innerHTML = headsPercentage + '%'
+           document.querySelector('#tails').innerHTML = tailsFlipTally
+           document.querySelector('#tails-percent').innerHTML = tailsPercentage  + '%'
+           
+       } else {
+           //this (<.5) means that we have selected tails. MB interprets this as being since a coin flip only has 2 possibilities. 
+           tailsFlipTally++
+           totalFlips++
+           headsPercentage = Math.round(headsFlipTally/totalFlips * 100)
+           tailsPercentage  = Math.round(tailsFlipTally/totalFlips * 100)
+           document.querySelector('#penny-image').src = 'assets/images/penny-tails.jpg'
+           document.querySelector('#message').innerHTML = "!You've Flipped Tails!"
+           document.querySelector('#heads').innerHTML = headsFlipTally
+           document.querySelector('#heads-percent').innerHTML = headsPercentage + '%'
+           document.querySelector('#tails').innerHTML = tailsFlipTally
+           document.querySelector('#tails-percent').innerHTML = tailsPercentage  + '%'
+       }
+   
 
-    // Flip Button Click Handler
-        // TODO: Determine flip outcome
-        // TODO: Update image and status message in the DOM
-
-        // Update the scorboard
-        // TODO: Calculate the total number of rolls/flips
-        // Make variables to track the percentages of heads and tails
-        // TODO: Use the calculated total to calculate the percentages
-        // HINT: Make sure not to divide by 0! (if total is 0, percent will be 0 as well)
-        // TODO: Update the display of each table cell
-
-
+   })
+   
     // Clear Button Click Handler
         // TODO: Reset global variables to 0
         // TODO: Update the scoreboard (same logic as in flip button click handler)
+
+   document.querySelector('#clear').addEventListener('click', function() {
+    headsFlipTally = 0
+    headsPercentage = 0
+    tailsFlipTally = 0
+    tailsPercentage  = 0
+       totalFlips = 0
+       document.querySelector('#penny-image').src = 'assets/images/penny-heads.jpg'
+       document.querySelector('#message').innerHTML = "Let's Get Flipping!"
+       document.querySelector('#heads').innerHTML = headsFlipTally
+       document.querySelector('#heads-percent').innerHTML = headsPercentage + '%'
+       document.querySelector('#tails').innerHTML = tailsFlipTally
+       document.querySelector('#tails-percent').innerHTML = tailsPercentage  + '%'
+
+   })
+       
 
 })
