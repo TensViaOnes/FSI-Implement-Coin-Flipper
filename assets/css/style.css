@@ -7,11 +7,11 @@ body {
 
 body {
     min-height: 100vh;
-    background: linear-gradient(to bottom left, orange, white);
+    background: linear-gradient(to bottom left, #e1af9e, #e1af9e);
 }
 
 main {
-    background-color: white;
+    background-color: #172e35;;
     margin: 20px;
     padding: 25px;
 }
@@ -19,6 +19,11 @@ main {
 h1 {
     margin: 0;
     padding: 25px;
+    color: #e1af9e;
+}
+
+h2 {
+    color: #e1af9e;
 }
 
 /* Controls and Message Styles */
@@ -63,9 +68,11 @@ th,
 td {
     border: 1px solid darkorange;
     margin: 0 auto;
+    color: #e1af9e
 }
 
 td {
     padding: 5px;
     font-weight: bold;
+    
 }
